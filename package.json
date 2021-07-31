@@ -37,8 +37,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://ambler22.github.io/mesto-react/",
-  "devDependencies": {
+  "homepage": "https://ambler22.github.io/mesto-react/" ,
+  "devDependencies": { 
     "gh-pages": "^3.2.3"
   }
 }

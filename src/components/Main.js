@@ -4,41 +4,36 @@ import Card from './Card';
 
 function Main(props) {
 
-    const [userName, setUserName] = React.useState([]);
-    const [userDescription, setUserDescription] = React.useState([]);
-    const [userAvatar, setUserAvatar] = React.useState([]);
+    const [userName, setUserName] = React.useState('');
+    const [userDescription, setUserDescription] = React.useState('');
+    const [userAvatar, setUserAvatar] = React.useState('');
 
     const [cards, setCards] = React.useState([]);
 
     React.useEffect(() => {
-        api.getUserInfo()
-            .then((userInfo) => {
-                setUserName(userInfo.name);
-                setUserDescription(userInfo.about);
-                setUserAvatar(userInfo.avatar);
+        Promise.all([
+            api.getUserInfo(),
+            api.getCards(),
+        ])
+            .then(([userData, cards]) => {
+                setUserName(userData.name);
+                setUserDescription(userData.about);
+                setUserAvatar(userData.avatar);
 
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }, )
-
-    React.useEffect(() => {
-        api.getCards()
-            .then((cards) => {
                 setCards(cards)
             })
             .catch((err) => {
                 console.log(err);
             })
-    }, )
+    }, [])
 
     return (
         <main>
             <section className="profile page__content">
                 <div className="profile__info">
-                    <img src={userAvatar} className="profile__avatar" alt="Аватар" onClick={props.onEditAvatar} />
-                    <div className="profile__avatar-icon"></div>
+                    <div className="profile__avatar-icon" onClick={props.onEditAvatar}>
+                    <img src={userAvatar} className="profile__avatar" alt="Аватар" />
+                    </div>
                     <div className="profile__content">
                         <div className="profile__add">
                             <h1 className="profile__name">{userName}</h1>
@@ -53,10 +48,11 @@ function Main(props) {
             </section>
 
             <section className="cards page__content">
-                {cards.map((card => <Card
-                    key={card._id}
-                    {...card}
-                    onCardClick={props.onCardClick} />
+                {cards.map((card) => (
+                    <Card
+                        key={card._id}
+                        {...card}
+                        onCardClick={props.onCardClick} />
                 ))}
             </section>
         </main>

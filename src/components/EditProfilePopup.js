@@ -11,10 +11,10 @@ function EditProfilePopup(props) {
             onClose = {props.onClose}
         >
             <input id={`${props.name}name`} type="text" name="name" className="form-container__input" value=""
-                required="Введите имя" tabIndex="1" minLength="2" maxLength="40" />
+                required="Введите имя" tabIndex="1" minLength="2" maxLength="40" placeholder="Имя"/>
             <span className="form-container__input-error" id={`${props.name}name-error`}></span>
             <input id={`${props.name}description`} type="text" name="description" className="form-container__input" value=""
-                required="Введите описание" tabIndex="2" minLength="2" maxLength="200" />
+                required="Введите описание" tabIndex="2" minLength="2" maxLength="200" placeholder="Занятие"/>
             <span className="form-container__input-error" id={`${props.name}description-error`}></span>
         </PopupWithForm>
     )

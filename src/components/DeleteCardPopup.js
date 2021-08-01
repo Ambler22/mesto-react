@@ -6,9 +6,7 @@ function DeleteCardPopup(props) {
             name='cards_delete'
             title='Вы уверены?'
             buttonText='Да'
-        >
-
-        </PopupWithForm>
+        />
     )
 }
 

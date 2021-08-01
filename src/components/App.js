@@ -50,8 +50,6 @@ function App() {
                 onEditProfile={handleEditProfileClick}
                 onAddPlace={handleAddPlaceClick}
                 onCardClick={handleCardClick}
-
-                onClose={closeAllPopups}
             />
 
             <Footer />

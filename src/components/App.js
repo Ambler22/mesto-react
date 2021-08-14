@@ -4,10 +4,10 @@ import Main from './Main';
 import Footer from './Footer';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
-import AddCardPopup from './AddCardPopup';
+import AddCardPopup from './AddPlacePopup';
 import DeleteCardPopup from './DeleteCardPopup';
 import ImagePopup from './ImagePopup';
-import { api } from '../utils/Api';
+import api from '../utils/api.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function App() {
